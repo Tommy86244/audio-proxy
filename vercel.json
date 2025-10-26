@@ -1,15 +1,14 @@
 {
   "version": 2,
-  "builds": [
-    {
-      "src": "api/**/*.js",
-      "use": "@vercel/node"
+  "functions": {
+    "api/downloads.js": {
+      "runtime": "nodejs18.x"
     }
-  ],
+  },
   "routes": [
     {
       "src": "/downloads/(.*)",
-      "dest": "/api/downloads.js"
+      "dest": "/api/downloads.js?filename=$1"
     }
   ]
 }
